@@ -1,5 +1,4 @@
 import _ from 'lodash';
-const I18n = require('i18n-js');
 
 const CourseUtils = class {
   // Given a course object with title, school and term properties,
@@ -44,7 +43,7 @@ const CourseUtils = class {
 
   // This builds i18n interface strings that vary based on state/props.
   i18n(messageKey, prefix, defaultPrefix = 'courses') {
-    return I18n.t(`${prefix}.${messageKey}`, {
+    return I18n.t(`${prefix || defaultPrefix}.${messageKey}`, {
       defaults: [{ scope: `${defaultPrefix}.${messageKey}` }]
     });
   }
